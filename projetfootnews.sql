@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 12 mars 2022 à 21:25
+-- Généré le :  ven. 27 mai 2022 à 00:08
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.10
 
@@ -61,24 +61,28 @@ CREATE TABLE `article` (
   `tag` text NOT NULL,
   `date` date NOT NULL,
   `idAgent` int(11) NOT NULL,
-  `idCat` int(11) NOT NULL
+  `idCat` int(11) NOT NULL,
+  `etat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `article`
 --
 
-INSERT INTO `article` (`idArticle`, `titre`, `image`, `contenu`, `tag`, `date`, `idAgent`, `idCat`) VALUES
-(41, 'Welcome To The Best Model Winner Contest', '1.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1),
-(42, 'Welcome To The Best Model Winner Contest', '42.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1),
-(43, 'Welcome To The Best Model Winner Contest', '43.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1),
-(44, 'Welcome To The Best Model Winner Contest', '44.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1),
-(45, 'Welcome To The Best Model Winner Contest', '45.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2),
-(46, 'Welcome To The Best Model Winner Contest', '46.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2),
-(47, 'Welcome To The Best Model Winner Contest', '47.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2),
-(48, 'Welcome To The Best Model Winner Contest', '48.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest vWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 6),
-(49, 'Welcome To The Best Model Winner Contest', '49.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 6),
-(50, 'Welcome To The Best Model Winner Contest', '50.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 7);
+INSERT INTO `article` (`idArticle`, `titre`, `image`, `contenu`, `tag`, `date`, `idAgent`, `idCat`, `etat`) VALUES
+(41, 'Welcome To The Best Model Winner Contest', '1.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1, 'false'),
+(42, 'Welcome To The Best Model Winner Contest', '42.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1, 'true'),
+(43, 'Welcome To The Best Model Winner Contest', '43.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1, 'false'),
+(44, 'Welcome To The Best Model Winner Contest', '44.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest ', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 1, 'false'),
+(45, 'Welcome To The Best Model Winner Contest', '45.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2, 'false'),
+(46, 'Welcome To The Best Model Winner Contest', '46.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2, 'false'),
+(47, 'Welcome To The Best Model Winner Contest', '47.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 2, 'false'),
+(48, 'Welcome To The Best Model Winner Contest', '48.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest vWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 6, 'false'),
+(49, 'Welcome To The Best Model Winner Contest', '49.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 6, 'false'),
+(50, 'Welcome To The Best Model Winner Contest', '50.jpg', 'Welcome To The Best Model Winner Contest Welcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest Welcome To The Best Model Winner ContestWelcome To The Best Model Winner Contest', 'Welcome To The Best Model Winner Contest', '2022-03-11', 4, 7, 'false'),
+(51, 'HHHHHHHH', '51.PNG', 'qzdqzdzqdqzd', 'qzdqzd', '2022-05-14', 4, 6, 'false'),
+(52, 'kjdkz', '52.png', 'lkdjzdklzkjdklqzjdklqzjd', 'dqzd', '2022-05-26', 4, 2, 'true'),
+(53, 'HHHHHHHH', '53.png', 'kjjhh', 'jkjkjk', '2022-05-26', 4, 6, 'false');
 
 -- --------------------------------------------------------
 
@@ -140,7 +144,7 @@ ALTER TABLE `agent`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
