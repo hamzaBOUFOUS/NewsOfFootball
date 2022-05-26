@@ -51,6 +51,10 @@
     <servlet-name>article</servlet-name>
     <url-pattern>/article</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>article</servlet-name>
+    <url-pattern>/editArticle</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>dashboard</servlet-name>
@@ -126,6 +130,11 @@
   <filter-mapping>  
   	<filter-name>filter</filter-name>  
   	<url-pattern>/article-list</url-pattern>  
+  </filter-mapping> 
+  
+  <filter-mapping>  
+  	<filter-name>filter</filter-name>  
+  	<url-pattern>/editArticle</url-pattern>  
   </filter-mapping> 
   
   <filter-mapping>  

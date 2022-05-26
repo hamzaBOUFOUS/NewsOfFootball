@@ -48,20 +48,20 @@ public class UserController extends HttpServlet {
 		
 		if(listRequest) {
 			long idcat = Long.parseLong(request.getParameter("cat"));
-			request.setAttribute("NewsByCat", this.articleDAO.findAllBy("SELECT * FROM Article where article.idCat =" +idcat+" ORDER BY date"));
+			request.setAttribute("NewsByCat", this.articleDAO.findAllBy("SELECT * FROM Article where article.idCat =" +idcat+" and article.etat ='true' ORDER BY date"));
 			request.setAttribute("idCat", idcat);
 			formUrl="categoryUser.jsp";
 		}else if(detailsRequest) {
 			long idart = Long.parseLong(request.getParameter("art"));
-			request.setAttribute("lastNewsTop", this.articleDAO.findAllBy("SELECT * FROM Article ORDER BY date LIMIT 3"));
+			request.setAttribute("lastNewsTop", this.articleDAO.findAllBy("SELECT * FROM Article where article.etat ='true'  ORDER BY date LIMIT 3"));
 			request.setAttribute("article", this.articleDAO.findById(idart));
 			formUrl="details.jsp";
 			
 		}else {
-			request.setAttribute("lastNews", this.articleDAO.findAllBy("SELECT * FROM Article ORDER BY date LIMIT 6"));
+			request.setAttribute("lastNews", this.articleDAO.findAllBy("SELECT * FROM Article where article.etat ='true' ORDER BY date LIMIT 6"));
 			//request.setAttribute("BestNews", this.articleDAO.findAllBy("SELECT * from article, (SELECT idCat, MAX(nbrArt) FROM (SELECT idCat,COUNT(*) as nbrArt FROM Article GROUP BY idCat) as test) as cate where article.idCat = cate.idCat"));
-			request.setAttribute("lastNewsTop", this.articleDAO.findAllBy("SELECT * FROM Article ORDER BY date LIMIT 4"));
-			request.setAttribute("randomNews", this.articleDAO.findAllBy("SELECT * FROM article ORDER BY RAND() LIMIT 5"));
+			request.setAttribute("lastNewsTop", this.articleDAO.findAllBy("SELECT * FROM Article where article.etat ='true' ORDER BY date LIMIT 4"));
+			request.setAttribute("randomNews", this.articleDAO.findAllBy("SELECT * FROM article where article.etat ='true' ORDER BY RAND() LIMIT 5"));
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(formUrl);
 		dispatcher.forward(request, response);

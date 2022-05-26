@@ -15,9 +15,22 @@ public class ArticleDAO {
         this.connection = SingletonDB.getConnection();
 	}
 	
+	public void editEtatOfArticle(long id, String etat) {
+		PreparedStatement ps;
+	    try {
+	    	ps = this.connection.prepareStatement("update Article set etat=? where idArticle=?");
+			ps.setString(1, etat);
+			ps.setLong(2, id);
+			ps.executeUpdate();
+			ps.close();
+	    } catch (SQLException ex) {
+	        System.out.println("erreur ! ");
+	    }
+	}
+	
     public void addObjet(Article obj) {
         try {
-            PreparedStatement ps = this.connection.prepareStatement("insert into Article values(null,?,?,?,?,?,?,?)");
+            PreparedStatement ps = this.connection.prepareStatement("insert into Article values(null,?,?,?,?,?,?,?,'false')");
             ps.setString(1, obj.getTitre());
             ps.setString(2, obj.getImage());
             ps.setString(3, obj.getContenu());
@@ -49,6 +62,7 @@ public class ArticleDAO {
             	article.setDate(result.getDate("date"));
             	article.setIdAgent(result.getLong("idAgent"));
             	article.setIdCat(result.getLong("idCat"));
+            	article.setEtat(result.getString("etat"));
             	listArticle.add(article);
             }
         } catch (SQLException e) {
@@ -92,6 +106,7 @@ public class ArticleDAO {
             	article.setDate(result.getDate("date"));
             	article.setIdAgent(result.getLong("idAgent"));
             	article.setIdCat(result.getLong("idCat"));
+            	article.setEtat(result.getString("etat"));
 	       	}        
 	    } catch (SQLException e) {
 	       e.printStackTrace();
@@ -117,6 +132,7 @@ public class ArticleDAO {
             	article.setDate(result.getDate("date"));
             	article.setIdAgent(result.getLong("idAgent"));
             	article.setIdCat(result.getLong("idCat"));
+            	article.setEtat(result.getString("etat"));
             	listArticle.add(article);
             }
         } catch (SQLException e) {

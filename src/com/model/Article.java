@@ -12,12 +12,23 @@ public class Article {
 	private Date date;
 	private long idAgent;
 	private long idCat;
-	
+	private String etat;
+
 	public Article() {
 		// TODO Auto-generated constructor stub
 	}
-
 	
+
+	public String getEtat() {
+		return etat;
+	}
+
+
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+
+
 	public String getContenu() {
 		return contenu;
 	}

@@ -55,7 +55,16 @@ public class ArticleController extends HttpServlet {
         if(listRequest) {
         	formUrl = "table.jsp";
 			request.setAttribute("listArticle", this.articleDAO.findAll());
-        }else {
+			request.setAttribute("listArticle1", this.articleDAO.findAll());
+        } else if(request.getRequestURI().equals("/ProjetFootNewsUser/editArticle")) {
+        	formUrl = "table.jsp";
+			String etat = request.getParameter("etat");
+			long id = Long.parseLong(request.getParameter("id"));
+			this.articleDAO.editEtatOfArticle(id, etat);
+			request.setAttribute("listArticle", this.articleDAO.findAll());
+			request.setAttribute("listArticle1", this.articleDAO.findAll());
+        
+		}else {
     		String add = request.getParameter("add") != null?request.getParameter("add"):"false";
     		if(add.equals("true")) {
     			Part filePart = request.getPart("image");

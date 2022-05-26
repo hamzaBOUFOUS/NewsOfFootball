@@ -128,13 +128,15 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID Article</th>
-                                        <th>Date Publication</th>
-                                        <th>Titre</th>
-                                        <th>Contenu</th>
-                                        <th>Tags</th>
-                                        <th>Catégorie</th>
-                                        <th>Auteur</th>
+                                        <th style="text-align: center;" >ID Article</th>
+                                        <th style="text-align: center;">Date Publication</th>
+                                        <th style="text-align: center;">Titre</th>
+                                        <th style="text-align: center;">Contenu</th>
+                                        <th style="text-align: center;">Tags</th>
+                                        <th style="text-align: center;">Catégorie</th>
+                                        <th style="text-align: center;">Auteur</th>
+                                        <th style="text-align: center;">Etat</th>
+                                        <th></th>
                                     </thead>
                                     <tbody>
 
@@ -145,22 +147,36 @@
 					                        	<td> <c:out value="${objet.titre}"/>
 					                        	<td> <c:out value="${objet.contenu}"/> </td>
 					                        	<td> <c:out value="${objet.tag}"/> </td>
-					                        	<td> <c:out value="${objet.idCat}"/>
-					                        	<td> <c:out value="${objet.idAgent}"/>
+					                        	<td> <c:out value="${objet.idCat}"/> </td>
+					                        	<td> <c:out value="${objet.idAgent}"/> </td>
+					                        	<td> 
+					                        		<c:if test="${objet.etat == 'true'}">
+					                        			<i class="pe-7s-check" style="font-size: 25px;color: green;">&nbsp;</i>
+					                        			
+					                        		</c:if> 
+					                        		<c:if test="${objet.etat == 'false'}">
+					                        			<i class="pe-7s-close-circle" style="font-size: 25px;color: red;">&nbsp;</i>
+					                        		</c:if> 
+					                        	</td>
+					                        	<td>
+					                        		<button type="button" class="btn btn-fill pull-left"
+					                        		 data-toggle="modal" data-target="#exampleModal<c:out value="${objet.idArticle}"/>"
+					                        		  style="background-color: #f9f9f9;border: 0px;">
+					                        			<i class="pe-7s-pen" style="font-size: 25px;color: #FFC107;"></i>
+					                        		</button>
+					                        	</td>
 					                    	</tr>
 										</c:forEach>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
+
 
         <footer class="footer">
             <div class="container-fluid">
@@ -174,7 +190,36 @@
     </div>
 </div>
 
-
+<!-- Modal -->
+<c:forEach items="${listArticle}" var="objet">
+	<div class="modal fade" id="exampleModal<c:out value="${objet.idArticle}"/>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    	<form method="post" action="/ProjetFootNewsUser/editArticle?id=<c:out value="${objet.idArticle}"/>">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Change Etat de Article</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+			      <div class="form-group">
+			     	 <label>Etat</label>
+			         <select name="etat" class="form-control" required>
+				     	<option value="true" ${objet.etat == 'true' ? 'selected' : ''}>True</option>
+				        <option value="false" ${objet.etat == 'false' ? 'selected' : ''}>false</option>
+			         </select>
+			      </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Save changes</button>
+		      </div>
+	      	</form>
+	    </div>
+	  </div>
+	</div>
+</c:forEach>
 </body>
 
     <!--   Core JS Files   -->
